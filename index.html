@@ -3,122 +3,500 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pump Sniper Club - Bot de sniper para Telegram que automatiza a compra e venda de Memecoins. Saiba como funciona e entre no grupo oficial.">
-    <meta name="keywords" content="Pump Sniper Club, bot Telegram, Memecoins, criptomoedas, automação">
-    <title>Pump Sniper Club - Bot de Memecoins no Telegram</title>
+    <meta name="description" content="Pump Sniper Club - Bot automatizado de investimento em criptomoedas no Telegram. Operações rápidas e lucrativas com Solana.">
+    <meta name="keywords" content="Pump Sniper Club, bot Telegram, criptomoedas, Solana, investimento automático, trading bot">
+    <title>Pump Sniper Club - Bot Automatizado de Criptomoedas</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
+        :root {
+            --primary: #0cf574;
+            --secondary: #5271ff;
+            --dark: #121826;
+            --darker: #0a0e16;
+            --light: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
         }
-        header {
-            background: #1abc9c;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.2em;
-        }
-        header p {
-            font-size: 1.1em;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         }
+        
+        header {
+            background: var(--darker);
+            padding: 25px 0;
+            border-bottom: 1px solid var(--light);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--dark);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
         section {
-            padding: 20px 0;
+            margin-bottom: 50px;
         }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(to bottom, var(--darker), var(--dark));
+            border-radius: 16px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(12, 245, 116, 0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite linear;
+        }
+        
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
         h2 {
-            color: #1abc9c;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
         }
-        ul {
-            list-style: none;
-            padding-left: 0;
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
         }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        
         li {
-            padding: 8px 0;
+            margin-bottom: 12px;
+            padding-left: 10px;
         }
-        li::before {
-            content: "🔹";
+        
+        ul li::marker {
+            color: var(--primary);
+            font-size: 1.2em;
+        }
+        
+        ol li::marker {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title span {
+            background: var(--darker);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .plan-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .plan-card {
+            background: linear-gradient(to bottom, var(--darker), var(--light));
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(12, 245, 116, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+        
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .plan-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: var(--darker);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(12, 245, 116, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(12, 245, 116, 0.4);
+        }
+        
+        .btn-large {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 40px auto;
+            padding: 18px 30px;
+            font-size: 1.2rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
             margin-right: 10px;
         }
-        .cta-button {
-            display: block;
-            width: 80%;
-            max-width: 300px;
-            margin: 30px auto;
-            text-align: center;
-            background: #e74c3c;
-            color: white;
-            text-decoration: none;
-            padding: 15px 0;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background 0.3s;
+        
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 4px;
         }
-        .cta-button:hover {
-            background: #c0392b;
+        
+        footer {
+            background: var(--darker);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid var(--light);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .plan-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .btn-large {
+                padding: 15px 25px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Pump Sniper Club</h1>
-        <p>Bot de sniper no Telegram para Memecoins</p>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">PSC</div>
+                <div class="logo-text">Pump Sniper Club</div>
+            </div>
+        </div>
     </header>
-    <main>
-        <section>
-            <h2>O que é o Pump Sniper Club e suas Vantagens</h2>
-            <p>💻 O Pump Sniper Club é um bot de sniper que opera dentro do Telegram e automatiza a compra e venda de Memecoins.<br>
-            ⚡ Sua principal função é comprar novas moedas no exato momento em que são lançadas na blockchain — em questão de milésimos de segundo — e vendê-las automaticamente quando atingirem um percentual de lucro pré-definido.</p>
+    
+    <main class="container">
+        <section class="hero">
+            <h1>Automatize Seus Investimentos em Criptomoedas</h1>
+            <p>O Pump Sniper Club é um bot que opera automaticamente no Telegram, realizando compras e vendas de criptomoedas com velocidade e precisão milimétrica.</p>
         </section>
-
+        
         <section>
-            <h2>Vantagens de usar o Pump Sniper Club:</h2>
-            <ul>
-                <li>Automação total: O bot identifica, compra e vende sozinho, sem necessidade de intervenção manual.</li>
-                <li>Velocidade superior: Executa transações muito mais rápido que um ser humano, garantindo prioridade na compra de tokens recém-lançados.</li>
-                <li>Busca automática por oportunidades: Diferente de outros bots que exigem que o usuário forneça manualmente o contrato da Moeda, o Pump Sniper Club busca e seleciona sozinho as Memecoins promissoras para investir.</li>
-                <li>Venda com lucro programado: O usuário define a meta de lucro (ex: 1000%) e o bot vende automaticamente quando esse valor é atingido.</li>
-                <li>Comodidade: Tudo é gerenciado diretamente pelo Telegram, com notificações em tempo real sobre cada operação realizada.</li>
-            </ul>
+            <h2>O que é o Pump Sniper Club?</h2>
+            <div class="card">
+                <p>💻 O Pump Sniper Club é um bot de sniper que opera dentro do Telegram e automatiza a compra e venda de criptomoedas.</p>
+                <p>⚡ Sua principal função é comprar novas moedas no exato momento em que são lançadas na blockchain — em questão de milésimos de segundo — e vendê-las automaticamente quando atingirem um percentual de lucro pré-definido.</p>
+            </div>
         </section>
-
+        
         <section>
-            <h2>Como usar o bot básico: caso não entenda, clique no botão 'Como usar o bot PumpSniperClub.</h2>
-            <ol>
-                <li>📲 <strong>Acesso:</strong> Acesse o bot pelo Telegram. Embora esteja em inglês, você pode traduzir todas as mensagens.</li>
-                <li>💰 <strong>Depósito:</strong> Assim que clicar em Depósito, o bot irá gerar um endereço para enviar fundos em Solana. Existem duas opções: 1️⃣ QR Code ou 2️⃣ chave para copiar e colar..</li>
-                <li>📝 <strong>Escolha do Plano:</strong> Selecione um plano. Usei o "Legendary Sniper", que busca lucros de até 1000% em até 7 dias.</li>
-                <li>💳 <strong>Em My Wallet Cadastre sua Carteira:</strong> Informe seu endereço para saque e recebimento dos lucros, um endereço que receba solana.</li>
-                <li>✅ <strong>Resultado:</strong> O bot operou sozinho, fez duas operações e atingiu a meta de lucro, resgatando automaticamente o valor para minha carteira.</li>
-            </ol>
+            <h2>Vantagens Exclusivas</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Automação total:</strong> O bot identifica, compra e vende sozinho, sem necessidade de intervenção manual.</li>
+                    <li><strong>Velocidade superior:</strong> Executa transações muito mais rápido que um ser humano, garantindo prioridade na compra de tokens recém-lançados.</li>
+                    <li><strong>Busca automática por oportunidades:</strong> Diferente de outros bots, o Pump Sniper Club busca e seleciona sozinho as criptomoedas promissoras para investir.</li>
+                    <li><strong>Venda com lucro programado:</strong> Você define a meta de lucro (ex: 1000%) e o bot vende automaticamente quando esse valor é atingido.</li>
+                    <li><strong>Comodidade absoluta:</strong> Tudo é gerenciado diretamente pelo Telegram, com notificações em tempo real sobre cada operação.</li>
+                </ul>
+            </div>
         </section>
-
+        
         <section>
-            <h2></h2>
-            <a href="https://t.me/+FE76sf5yBTZkMTMx" class="cta-button">Como Usar o Bot PumpSniperClub</a>
+            <h2>Como Depositar e Usar o Bot</h2>
+            
+            <div class="card">
+                <h3 class="card-title"><span>1</span> Depósito</h3>
+                <p>Clique em <strong>Depositar (Deposit)</strong>. Automaticamente o Bot vai gerar um QR Code e um endereço em letras e números para que você envie suas Solanas, no valor que deseja investir.</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><span>2</span> Escolha do Plano</h3>
+                <p>Clique em <strong>Planos (Plans)</strong> e escolha a melhor opção para você:</p>
+                
+                <div class="plan-container">
+                    <div class="plan-card">
+                        <h3>Professional Sniper Plan</h3>
+                        <ul class="plan-features">
+                            <li>Duração: 30 dias</li>
+                            <li>Rentabilidade: -100% a 200%</li>
+                            <li>Risco baixo</li>
+                            <li>Ideal para conservadores</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <h3>Legendary Sniper Plan</h3>
+                        <ul class="plan-features">
+                            <li>Duração: 7 dias</li>
+                            <li>Rentabilidade: -100% a 1000%</li>
+                            <li>Risco médio</li>
+                            <li>Retornos rápidos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><span>3</span> Definição do Valor</h3>
+                <p>Após escolher o plano, o Bot vai enviar uma mensagem pedindo para você digitar o valor que deseja investir (o mesmo que você depositou no primeiro passo).</p>
+                <p>Exemplo: se você depositou 0.98 Solana, digite esse valor quando o Bot solicitar.</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><span>4</span> Cadastro da Carteira de Saque</h3>
+                <p>Volte ao menu do Bot e clique em <strong>Minha Carteira (My Wallet)</strong>. O Bot vai solicitar o endereço da sua carteira de saque. Nesse momento, insira o endereço de recebimento da rede Solana.</p>
+                <div class="warning">
+                    ⚠️ Lembre-se: o endereço deve obrigatoriamente ser compatível com a rede Solana.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title"><span>5</span> Aguardar os Resultados</h3>
+                <p>Pronto! Agora é só deixar o Bot trabalhar. Ao final do período do seu plano (7 ou 30 dias), o Bot enviará automaticamente para sua carteira o valor investido + a porcentagem de lucro obtida.</p>
+                <p>💰 Simples assim. Agora é só aguardar e lucrar!</p>
+            </div>
         </section>
-
-        <section>
-            <a href="https://t.me/PumpSniperClub_bot/?start=F7P6JVX7" class="cta-button">PumpSniperClub: Clique aqui e comece a lucrar ✅</a>
-        </section>
+        
+        <div class="btn-group">
+            <a href="https://t.me/+FE76sf5yBTZkMTMx" class="btn btn-outline">Guia Detalhado de Uso</a>
+            <a href="https://t.me/PumpSniperClub_bot/?start=F7P6JVX7" class="btn">Comece a Lucrar Agora</a>
+        </div>
     </main>
+    
+    <footer>
+        <div class="container footer-content">
+            <p>Pump Sniper Club © 2023 - Todos os direitos reservados</p>
+            <p>Este serviço não garante retornos financeiros e envolve riscos. Invista com responsabilidade.</p>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
