@@ -335,6 +335,112 @@
             gap: 20px;
         }
         
+        /* NOVO ESTILO PARA A SEÇÃO CTA */
+        .cta-premium {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--light) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 60px 0;
+            text-align: center;
+            border: 1px solid rgba(12, 245, 116, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-premium::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .cta-premium h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .cta-premium h2::after {
+            display: none;
+        }
+        
+        .cta-premium p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--text);
+        }
+        
+        .cta-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-feature {
+            background: rgba(12, 245, 116, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            width: 220px;
+            border: 1px solid rgba(12, 245, 116, 0.2);
+        }
+        
+        .cta-feature h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .cta-feature p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn-cta {
+            padding: 16px 35px;
+            font-size: 1.2rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50px;
+            color: var(--darker);
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(12, 245, 116, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(12, 245, 116, 0.5);
+        }
+        
+        .btn-cta-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-cta-secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
         /* Responsividade */
         @media (max-width: 768px) {
             .header-content {
@@ -361,6 +467,34 @@
             
             .plan-container {
                 grid-template-columns: 1fr;
+            }
+            
+            /* Responsividade para a nova seção */
+            .cta-premium {
+                padding: 30px 20px;
+            }
+            
+            .cta-premium h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-features {
+                gap: 15px;
+            }
+            
+            .cta-feature {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                max-width: 300px;
             }
         }
         
@@ -390,6 +524,15 @@
                 padding: 15px 25px;
                 font-size: 1.1rem;
             }
+            
+            /* Ajustes mobile para a nova seção */
+            .cta-premium h2 {
+                font-size: 1.6rem;
+            }
+            
+            .cta-premium p {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -414,6 +557,32 @@
             <div class="card">
                 <p>💻 O Pump Sniper Club é um bot de sniper que opera dentro do Telegram e automatiza a compra e venda de criptomoedas.</p>
                 <p>⚡ Sua principal função é comprar novas moedas no exato momento em que são lançadas na blockchain — em questão de milésimos de segundo — e vendê-las automaticamente quando atingirem um percentual de lucro pré-definido.</p>
+            </div>
+        </section>
+        
+        <!-- NOVA SEÇÃO CTA PREMIUM -->
+        <section class="cta-premium">
+            <h2>Resultados Financeiros em Até 7 Dias</h2>
+            <p>Experimente a potência do Pump Sniper Club e comece a ver retornos significativos em menos de uma semana. Nossa tecnologia avançada identifica oportunidades que humanos perderiam.</p>
+            
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <h3>⚡ Velocidade Inigualável</h3>
+                    <p>Execute transações em milissegundos, antes da maioria dos traders</p>
+                </div>
+                <div class="cta-feature">
+                    <h3>📈 Alto Potencial</h3>
+                    <p>Retornos expressivos em operações de curto prazo</p>
+                </div>
+                <div class="cta-feature">
+                    <h3>🤖 Automação Total</h3>
+                    <p>O bot trabalha 24/7 mesmo quando você não está online</p>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://t.me/PumpSniperClub_bot/?start=F7P6JVX7" class="btn-cta">Começar a Lucrar Agora</a>
+                <a href="https://t.me/+FE76sf5yBTZkMTMx" class="btn-cta btn-cta-secondary">Ver Tutorial Completo</a>
             </div>
         </section>
         
